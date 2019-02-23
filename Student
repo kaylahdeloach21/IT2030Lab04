@@ -1,0 +1,23 @@
+
+Namespace EnrollmentApplication.Models
+
+End Namespace
+Public Class Student
+{
+[Display(Name = "Student ID")]
+public virtual int Id { get; set; }
+
+[Display(Name = "Last Name")]
+[Required(ErrorMessage = "Enter value for Last Name")]
+[MaxLength(50, ErrorMessage = "Allowable max is 50")]
+public virtual string LastName { get; set; }
+
+
+[Display(Name = "First Name")]
+[Required(ErrorMessage = "Enter value for First Name")]
+[MaxLength(50, ErrorMessage = "Allowable max length is 50")]
+public virtual string FirstName { get; set; }
+}
+}
+
+End Class
