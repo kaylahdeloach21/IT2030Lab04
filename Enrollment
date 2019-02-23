@@ -1,0 +1,39 @@
+Namespace EnrollmentApplication.Models
+
+End Namespace
+Public Class Enrollment
+{
+public virtual int Id { get; set; }
+
+[Display(Name = "Student ID")]
+public virtual int StudentId { get; set; }
+public Student Student { get; set; }
+
+[Display(Name = "Course ID")]
+public virtual int CourseId { get; set; }
+
+public Course Course { get; set; }
+
+[Display(Name = "Grade")]
+[RegularExpression("^[A-F]{1}$", ErrorMessage = "Enter value A , B, C, D, E, F")]
+public virtual string Grade { get; set; }
+public bool IsActive { get; set; }
+
+[Display(Name = "Assigned Campus")]
+[Required(ErrorMessage = "Enter value for campus")]
+public virtual string AssignedCampus { get; set; }
+
+
+[Display(Name = "Enrolled in Semester")]
+[Required(ErrorMessage = "Enter enrollment semester")]
+public virtual string EnrollmentSemester { get; set; }
+
+
+[Display(Name = "Enrollment Year")]  
+[Required(ErrorMessage = "Enter value for Enrollment Year ")]
+[Range(2018,2020, ErrorMessage = "Enter value greater than 2018")]
+public virtual int EnrollmentYear { get; set; }
+public virtual String Notes { get; set; }
+}
+}
+End Class
