@@ -1,0 +1,306 @@
+Namespace EnrollmentApplication
+    Public Class EnrollmentController
+        Inherits System.Web.Mvc.Controller
+
+        '
+        ' GET: /Enrollment
+
+        Function Index() As ActionResult
+            Return View()
+        End Function
+
+        '
+        ' GET: /Enrollment/Details/5
+
+        Function Details(ByVal id As Integer) As ActionResult
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.Id)
+
+
+@Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.EnrollmentYear, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.EnrollmentYear, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.EnrollmentYear, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.AssignedCampus, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.AssignedCampus, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.AssignedCampus, "", new { @class = "text-danger" })
+
+
+
+
+@Html.LabelFor(model => model.EnrollmentSemester, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Spring", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Spring")
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Summer", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Summer")
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Fall", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Fall")
+@Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+
+
+
+
+
+
+}
+            Return View()
+        End Function
+
+        '
+        ' GET: /Enrollment/Create
+
+        Function Create() As ActionResult
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })
+@Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.EnrollmentYear, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.EnrollmentYear, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.EnrollmentYear, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.AssignedCampus, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.AssignedCampus, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.AssignedCampus, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.EnrollmentSemester, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Spring", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Spring")
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Summer", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Summer")
+@Html.RadioButtonFor(model => model.EnrollmentSemester, "Fall", new { htmlAttributes = new { @class = "form-control" } })
+@Html.Label("Fall")
+@Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
+
+
+@Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+@Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+
+
+
+
+}
+            @Html.DisplayNameFor(model => model.Course.Title)
+
+
+@Html.DisplayFor(model => model.Course.Title)
+
+
+@Html.DisplayNameFor(model => model.Student.LastName)
+
+
+@Html.DisplayFor(model => model.Student.LastName)
+
+
+@Html.DisplayNameFor(model => model.Grade)
+
+
+@Html.DisplayFor(model => model.Grade)
+
+
+@Html.DisplayNameFor(model => model.EnrollmentSemester)
+
+
+@Html.DisplayFor(model => model.EnrollmentSemester)
+
+
+@Html.DisplayNameFor(model => model.AssignedCampus)
+
+
+@Html.DisplayFor(model => model.AssignedCampus)
+
+
+@Html.DisplayNameFor(model => model.EnrollmentYear)
+
+
+@Html.DisplayFor(model => model.EnrollmentYear)
+
+
+@Html.DisplayNameFor(model => model.Notes)
+
+
+@Html.DisplayFor(model => model.Notes)
+
+
+@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+@Html.ActionLink("Back to List", "Index")
+
+
+
+
+            Return View()
+        End Function
+
+        '
+        ' POST: /Enrollment/Create
+
+        <HttpPost()> _
+        Function Create(ByVal collection As FormCollection) As ActionResult
+            Try
+                ' TODO: Add insert logic here
+                Return RedirectToAction("Index")
+            Catch
+                Return View()
+            End Try
+        End Function
+
+        '
+        ' GET: /Enrollment/Edit/5
+
+        Function Edit(ByVal id As Integer) As ActionResult
+            @Html.DisplayNameFor(model => model.Course.Title)
+
+
+@Html.DisplayFor(model => model.Course.Title)
+
+
+@Html.DisplayNameFor(model => model.Student.LastName)
+
+
+@Html.DisplayFor(model => model.Student.LastName)
+
+
+@Html.DisplayNameFor(model => model.Grade)
+
+
+@Html.DisplayFor(model => model.Grade)
+
+
+@Html.DisplayNameFor(model => model.EnrollmentSemester)
+
+
+@Html.DisplayFor(model => model.EnrollmentSemester)
+
+
+@Html.DisplayNameFor(model => model.AssignedCampus)
+
+
+@Html.DisplayFor(model => model.AssignedCampus)
+
+
+@Html.DisplayNameFor(model => model.EnrollmentYear)
+
+
+@Html.DisplayFor(model => model.EnrollmentYear)
+
+
+@Html.DisplayNameFor(model => model.Notes)
+
+
+@Html.DisplayFor(model => model.Notes)
+
+
+@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+@Html.ActionLink("Back to List", "Index")
+
+
+            Return View()
+        End Function
+
+        '
+        ' POST: /Enrollment/Edit/5
+
+        <HttpPost()> _
+        Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
+            Try
+                ' TODO: Add update logic here
+
+                Return RedirectToAction("Index")
+            Catch
+                Return View()
+            End Try
+        End Function
+
+        '
+        ' GET: /Enrollment/Delete/5
+
+        Function Delete(ByVal id As Integer) As ActionResult
+            Return View()
+        End Function
+
+        '
+        ' POST: /Enrollment/Delete/5
+
+        <HttpPost()> _
+        Function Delete(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
+            Try
+                ' TODO: Add delete logic here
+
+                Return RedirectToAction("Index")
+            Catch
+                Return View()
+            End Try
+        End Function
+    End Class
+End Namespace
